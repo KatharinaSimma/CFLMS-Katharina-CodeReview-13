@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event{% endblock %}
+
+{% block body %}
+
+    <main>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-3 text-info "><i class="fas fa-play mr-3"></i>Big Events</h1>
+                <p class="lead">For when corona is over ;-)</p>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <h1 class="text-info my-3 display-5">Event Details</h1>
+
+            <div class="card">
+                <img src="{{ event.image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">{{ event.name }}</h5>
+                <div>
+                    <p class="card-text"> {{ event.description }}
+                        <ul class="list-group">
+                            <li class="list-group-item">Date & Time: {{ event.datetime ? event.datetime|date('F d, Y H:i') : '' }}</li>
+                            <li class="list-group-item">Location:<br> {{ event.location }} <br>
+                                <small class="text-muted">{{ event.address }}</small>
+                            </li>
+
+                            <li class="list-group-item">Contact: <br>
+                                <small class="text-muted">{{ event.email }}</small><br>
+                                <small class="text-muted">{{ event.phone }}</small><br>
+                                <small class="text-muted">{{ event.www }}</small>
+                            </li>
+                        </ul>
+                    </p>
+                    <button type="button" class="btn btn-info"><a class="text-light" href="{{ path('event_edit', {'id': event.id}) }}">Edit Event</a></button>
+                    <button type="button" class="btn btn-info"><a class="text-light" href="{{ path('event_index') }}">Back to List</a></button>
+                    {{ include('event/_delete_form.html.twig') }}
+                                
+                </div>
+            </div>
+    </main>    
+    
+{% endblock %}

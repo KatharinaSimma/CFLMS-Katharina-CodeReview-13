@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Event{% endblock %}
+
+{% block body %}
+
+<main>  
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-3 text-info "><i class="fas fa-play mr-3"></i>Big Events</h1>
+                <p class="lead">For when corona is over ;-)</p>
+
+            </div>
+        </div>
+
+        <div class="container">
+
+            <h1 class="text-info my-3 display-5">Create a new event</h1>
+
+            {{ include('event/_form.html.twig') }}
+
+            <button type="button" class="btn btn-info"><a class="text-light" href="{{ path('event_index') }}">Back to List</a></button>
+
+
+
+
+        </div>
+
+    </main>
+
+
+
+{% endblock %}
